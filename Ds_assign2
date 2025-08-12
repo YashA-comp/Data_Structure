@@ -1,0 +1,99 @@
+/*write a game development program that implements the Bubble Sort algorithm.
+The program 	will simulate a simple game where the player can input a set 
+of numbers, and the numbers will be sorted using Bubble Sort to simulate 
+ a "level-up" scenario where the player's scores are sorted in ascending order.
+*/ 
+#include<iostream>
+using namespace std;
+
+int main() {
+    int nos, temp;
+    cout << "Enter The Number Of Scores: ";
+    cin >> nos;
+
+    int cop1[nos];
+    cout << "Enter Scores For Player 1: ";
+    for (int pass = 0; pass < nos; pass++) {
+        cin >> cop1[pass]; 
+    }
+  int cop2[nos];
+    cout << "Enter Scores For Player 2: ";
+    for (int pass = 0; pass < nos; pass++) {
+        cin >> cop2[pass]; 
+    }
+
+  
+    for (int pass = 0; pass < nos - 1; pass++) {
+        for (int sort = 0; sort < nos - pass - 1; sort++) {
+            if (cop1[sort] < cop1[sort + 1]) {
+                temp = cop1[sort];
+                cop1[sort] = cop1[sort + 1];
+                cop1[sort + 1] = temp;
+            }
+        }
+    }
+
+  
+   
+    for (int pass = 0; pass < nos - 1; pass++) {
+        for (int sort = 0; sort < nos - pass - 1; sort++) {
+            if (cop2[sort] < cop2[sort + 1]) {
+                temp = cop2[sort];
+                cop2[sort] = cop2[sort + 1];
+                cop2[sort + 1] = temp;
+            }
+        }
+    }
+
+    if (cop1[nos - 1] == cop2[nos - 1]) {
+        cout << "Tie!";
+    } else if (cop1[0] > cop2[0]) {
+        cout << "Player 1 Won!";
+    } else {
+        cout << "Player 2 Won!";
+    }
+
+    return 0;
+}
+
+	
+Organizing Cards in a Hand:
+Application: When playing card games, players often use an approach similar to insertion sort to  organize their cards. They pick one card at a time and insert it into the correct position in their hand, maintaining a sorted sequence. Write a program that demonstrates how to organize (sort) cards in a hand using insertion sort
+Code:
+#include<iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter number of cards: ";
+    cin >> n;
+
+    int arr[n];
+
+   
+    cout << "Enter the card values:\n";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+   
+    for(int i = 1; i < n; i++) {
+        int j = i;
+        while(j > 0 && arr[j - 1] > arr[j]) {
+         
+            int temp = arr[j - 1];
+            arr[j - 1] = arr[j];
+            arr[j] = temp;
+            j--;  
+        }
+    }
+
+   
+    cout << "Sorted cards: ";
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] ;
+    }
+
+    return 0;
+}
+
